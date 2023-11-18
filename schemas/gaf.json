@@ -1,0 +1,2463 @@
+{
+  "name": "gaf",
+  "description": "Various association data models",
+  "id": "https://w3id.org/ontology_association/gaf",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "biolink": {
+      "prefix_prefix": "biolink",
+      "prefix_reference": "https://w3id.org/biolink/vocab/"
+    },
+    "ontology_association": {
+      "prefix_prefix": "ontology_association",
+      "prefix_reference": "https://w3id.org/ontology_association/"
+    },
+    "SO": {
+      "prefix_prefix": "SO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/SO_"
+    },
+    "PR": {
+      "prefix_prefix": "PR",
+      "prefix_reference": "http://purl.obolibrary.org/obo/PR_"
+    },
+    "GO": {
+      "prefix_prefix": "GO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/GO_"
+    },
+    "RO": {
+      "prefix_prefix": "RO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/RO_"
+    },
+    "BFO": {
+      "prefix_prefix": "BFO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/BFO_"
+    },
+    "owl": {
+      "prefix_prefix": "owl",
+      "prefix_reference": "http://www.w3.org/2002/07/owl#"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_curi_maps": [
+    "obo_context",
+    "semweb_context"
+  ],
+  "default_prefix": "ontology_association",
+  "types": {
+    "curie": {
+      "name": "curie",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "typeof": "string"
+    },
+    "symbol type": {
+      "name": "symbol type",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "typeof": "string"
+    },
+    "name type": {
+      "name": "name type",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "typeof": "string"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:time",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
+      "comments": [
+        "Used for inheritance and type checking"
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    },
+    "jsonpointer": {
+      "name": "jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "jsonpath": {
+      "name": "jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "sparqlpath": {
+      "name": "sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "gene_ontology_aspect_enum": {
+      "name": "gene_ontology_aspect_enum",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "permissible_values": {
+        "F": {
+          "text": "F",
+          "description": "molecular_function",
+          "meaning": "GO:0003674"
+        },
+        "P": {
+          "text": "P",
+          "description": "biological_process",
+          "meaning": "GO:0008150"
+        },
+        "C": {
+          "text": "C",
+          "description": "cellular_component",
+          "meaning": "GO:0005575"
+        }
+      }
+    },
+    "gp_entity_type_enum": {
+      "name": "gp_entity_type_enum",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "permissible_values": {
+        "protein_coding_gene": {
+          "text": "protein_coding_gene",
+          "meaning": "SO:0001217"
+        },
+        "ncRNA_gene": {
+          "text": "ncRNA_gene",
+          "meaning": "SO:0001263"
+        },
+        "mRNA": {
+          "text": "mRNA",
+          "meaning": "SO:0000234"
+        },
+        "ncRNA": {
+          "text": "ncRNA",
+          "meaning": "SO:0000655"
+        },
+        "protein": {
+          "text": "protein",
+          "meaning": "PR:000000001"
+        },
+        "protein-containing complex": {
+          "text": "protein-containing complex",
+          "meaning": "GO:0032991"
+        },
+        "genetic_marker": {
+          "text": "genetic_marker",
+          "meaning": "SO:0001645"
+        }
+      }
+    },
+    "gp2term_relation_enum": {
+      "name": "gp2term_relation_enum",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "permissible_values": {
+        "NOT": {
+          "text": "NOT",
+          "meaning": "owl:complementOf"
+        },
+        "enables": {
+          "text": "enables",
+          "meaning": "RO:0002327"
+        },
+        "involved_in": {
+          "text": "involved_in",
+          "meaning": "RO:0002331"
+        },
+        "located_in": {
+          "text": "located_in",
+          "meaning": "RO:0001025"
+        },
+        "contributes_to": {
+          "text": "contributes_to",
+          "meaning": "RO:0002326"
+        },
+        "acts_upstream_of": {
+          "text": "acts_upstream_of",
+          "meaning": "RO:0002263"
+        },
+        "part_of": {
+          "text": "part_of",
+          "meaning": "BFO:0000050"
+        },
+        "acts_upstream_of_positive_effect": {
+          "text": "acts_upstream_of_positive_effect",
+          "meaning": "RO:0004034"
+        },
+        "is_active_in": {
+          "text": "is_active_in",
+          "meaning": "RO:0002432"
+        },
+        "acts_upstream_of_negative_effect": {
+          "text": "acts_upstream_of_negative_effect",
+          "meaning": "RO:0004035"
+        },
+        "colocalizes_with": {
+          "text": "colocalizes_with",
+          "meaning": "RO:0002325"
+        },
+        "acts_upstream_of_or_within": {
+          "text": "acts_upstream_of_or_within",
+          "meaning": "RO:0002264"
+        },
+        "acts_upstream_of_or_within_positive_effect": {
+          "text": "acts_upstream_of_or_within_positive_effect",
+          "meaning": "RO:0004032"
+        },
+        "acts_upstream_of_or_within_negative_effect": {
+          "text": "acts_upstream_of_or_within_negative_effect",
+          "meaning": "RO:0004033"
+        }
+      }
+    },
+    "simple_qualifier_enum": {
+      "name": "simple_qualifier_enum",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "permissible_values": {
+        "NOT": {
+          "text": "NOT",
+          "meaning": "owl:complementOf"
+        },
+        "contributes_to": {
+          "text": "contributes_to",
+          "meaning": "RO:0002326"
+        }
+      }
+    }
+  },
+  "slots": {
+    "id": {
+      "name": "id",
+      "description": "identifier",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "identifier": true,
+      "range": "curie",
+      "required": true
+    },
+    "local id": {
+      "name": "local id",
+      "description": "local part of identifier",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "identifier": false,
+      "range": "string",
+      "required": true,
+      "pattern": "\\S+"
+    },
+    "db": {
+      "name": "db",
+      "description": "db part of identifier",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "identifier": false,
+      "range": "string",
+      "required": true,
+      "pattern": "[a-zA-Z0-9\\.\\-\\_]+"
+    },
+    "db object ref": {
+      "name": "db object ref",
+      "todos": [
+        "in GAF this refers to a local id, in GPAD a CURIE"
+      ],
+      "examples": [
+        {
+          "value": "UniProtKB:P11678"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "biolink:subject"
+      ],
+      "range": "entity",
+      "required": true
+    },
+    "aspect": {
+      "name": "aspect",
+      "description": "varies by association type",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "required": true
+    },
+    "db object symbol": {
+      "name": "db object symbol",
+      "examples": [
+        {
+          "value": "AMOT"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "range": "symbol type",
+      "required": true
+    },
+    "db object name": {
+      "name": "db object name",
+      "examples": [
+        {
+          "value": "Angiomotin"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "biolink:name"
+      ],
+      "range": "name type",
+      "required": false
+    },
+    "db object synonyms": {
+      "name": "db object synonyms",
+      "examples": [
+        {
+          "value": "Angiomotin"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "multivalued": true,
+      "range": "name type"
+    },
+    "db object type": {
+      "name": "db object type",
+      "examples": [
+        {
+          "value": "PR:000000001"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "multivalued": false
+    },
+    "db object taxon": {
+      "name": "db object taxon",
+      "examples": [
+        {
+          "value": "NCBITaxon:9606"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "multivalued": false,
+      "range": "taxon",
+      "required": true
+    },
+    "encoded by": {
+      "name": "encoded by",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "multivalued": true,
+      "range": "entity",
+      "required": false
+    },
+    "parent protein": {
+      "name": "parent protein",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "multivalued": true,
+      "range": "entity",
+      "required": false
+    },
+    "protein containing complex members": {
+      "name": "protein containing complex members",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "multivalued": true,
+      "range": "entity",
+      "required": false
+    },
+    "db xrefs": {
+      "name": "db xrefs",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "multivalued": true,
+      "range": "curie",
+      "required": false
+    },
+    "negation": {
+      "name": "negation",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "range": "boolean"
+    },
+    "ontology class ref": {
+      "name": "ontology class ref",
+      "examples": [
+        {
+          "value": "GO:0050803"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "biolink:object"
+      ],
+      "range": "ontology class",
+      "required": true
+    },
+    "qualifiers": {
+      "name": "qualifiers",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "multivalued": true
+    },
+    "relation": {
+      "name": "relation",
+      "examples": [
+        {
+          "value": "RO:0002263"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "biolink:predicate"
+      ],
+      "required": true
+    },
+    "supporting references": {
+      "name": "supporting references",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "biolink:publications"
+      ],
+      "multivalued": true,
+      "range": "publication",
+      "required": true
+    },
+    "with or from": {
+      "name": "with or from",
+      "examples": [
+        {
+          "value": "WB:WBVar00000510"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "biolink:evidence_object"
+      ],
+      "multivalued": true,
+      "range": "entity"
+    },
+    "interacting taxon ref": {
+      "name": "interacting taxon ref",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "biolink:evidence_object"
+      ],
+      "multivalued": true,
+      "range": "taxon"
+    },
+    "evidence type": {
+      "name": "evidence type",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "biolink:evidence"
+      ],
+      "range": "ontology class",
+      "required": true
+    },
+    "bioentity type": {
+      "name": "bioentity type",
+      "description": "type of entity",
+      "from_schema": "https://w3id.org/ontology_association/gaf"
+    },
+    "annotation date": {
+      "name": "annotation date",
+      "description": "date when annotation was made",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "range": "datetime",
+      "pattern": "^\\d{6}"
+    },
+    "assigned by": {
+      "name": "assigned by",
+      "description": "assigned by",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "range": "provider",
+      "required": true
+    },
+    "gene product form": {
+      "name": "gene product form",
+      "description": "isoform",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "range": "biological entity"
+    },
+    "annotation extensions": {
+      "name": "annotation extensions",
+      "description": "disjunction",
+      "examples": [
+        {
+          "value": "BFO:0000066(GO:0005829)"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "multivalued": true,
+      "range": "annotation extension"
+    },
+    "annotation properties": {
+      "name": "annotation properties",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "multivalued": true,
+      "range": "property value pair"
+    },
+    "gene product properties": {
+      "name": "gene product properties",
+      "examples": [
+        {
+          "value": "db-subset=Swiss-Prot"
+        }
+      ],
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "multivalued": true,
+      "range": "property value pair"
+    },
+    "document metadata field": {
+      "name": "document metadata field",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "abstract": true
+    },
+    "date generated": {
+      "name": "date generated",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "document metadata field",
+      "range": "string"
+    },
+    "generated by": {
+      "name": "generated by",
+      "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "document metadata field",
+      "range": "provider"
+    },
+    "url": {
+      "name": "url",
+      "description": "e.g. http://www.yeastgenome.org/",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "document metadata field"
+    },
+    "project release": {
+      "name": "project release",
+      "description": "e.g.  WS275",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "document metadata field"
+    },
+    "funding": {
+      "name": "funding",
+      "description": "e.g. NHGRI",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "document metadata field"
+    },
+    "ontology version": {
+      "name": "ontology version",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "document metadata field",
+      "abstract": true
+    },
+    "go version": {
+      "name": "go version",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "ontology version"
+    },
+    "ro version": {
+      "name": "ro version",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "ontology version"
+    },
+    "gorel version": {
+      "name": "gorel version",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "ontology version"
+    },
+    "eco version": {
+      "name": "eco version",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "ontology version"
+    },
+    "frequency": {
+      "name": "frequency",
+      "from_schema": "https://w3id.org/ontology_association/gaf"
+    },
+    "onset": {
+      "name": "onset",
+      "from_schema": "https://w3id.org/ontology_association/gaf"
+    },
+    "qualifier": {
+      "name": "qualifier",
+      "from_schema": "https://w3id.org/ontology_association/gaf"
+    }
+  },
+  "classes": {
+    "gpad association": {
+      "name": "gpad association",
+      "description": "line of GPAD",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "association",
+      "mixins": [
+        "denormalized",
+        "go related"
+      ],
+      "slots": [
+        "db object ref",
+        "negation",
+        "relation",
+        "ontology class ref",
+        "supporting references",
+        "evidence type",
+        "with or from",
+        "interacting taxon ref",
+        "annotation date",
+        "assigned by",
+        "annotation extensions",
+        "annotation properties"
+      ],
+      "slot_usage": {
+        "db object type": {
+          "name": "db object type",
+          "range": "gp_entity_type_enum"
+        },
+        "relation": {
+          "name": "relation",
+          "domain_of": [
+            "gpad association"
+          ],
+          "range": "gp2term_relation_enum",
+          "required": true
+        }
+      },
+      "attributes": {
+        "db object ref": {
+          "name": "db object ref",
+          "todos": [
+            "in GAF this refers to a local id, in GPAD a CURIE"
+          ],
+          "examples": [
+            {
+              "value": "UniProtKB:P11678"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:subject"
+          ],
+          "alias": "db_object_ref",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association"
+          ],
+          "range": "entity",
+          "required": true
+        },
+        "negation": {
+          "name": "negation",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "negation",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association"
+          ],
+          "range": "boolean"
+        },
+        "relation": {
+          "name": "relation",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "relation",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association"
+          ],
+          "range": "gp2term_relation_enum",
+          "required": true
+        },
+        "ontology class ref": {
+          "name": "ontology class ref",
+          "examples": [
+            {
+              "value": "GO:0050803"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:object"
+          ],
+          "alias": "ontology_class_ref",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "ontology class",
+          "required": true
+        },
+        "supporting references": {
+          "name": "supporting references",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:publications"
+          ],
+          "multivalued": true,
+          "alias": "supporting_references",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "publication",
+          "required": true
+        },
+        "evidence type": {
+          "name": "evidence type",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:evidence"
+          ],
+          "alias": "evidence_type",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "ontology class",
+          "required": true
+        },
+        "with or from": {
+          "name": "with or from",
+          "examples": [
+            {
+              "value": "WB:WBVar00000510"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:evidence_object"
+          ],
+          "multivalued": true,
+          "alias": "with_or_from",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "entity"
+        },
+        "interacting taxon ref": {
+          "name": "interacting taxon ref",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:evidence_object"
+          ],
+          "multivalued": true,
+          "alias": "interacting_taxon_ref",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association"
+          ],
+          "range": "taxon"
+        },
+        "annotation date": {
+          "name": "annotation date",
+          "description": "date when annotation was made",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "annotation_date",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "datetime",
+          "pattern": "^\\d{6}"
+        },
+        "assigned by": {
+          "name": "assigned by",
+          "description": "assigned by",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "assigned_by",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "provider",
+          "required": true
+        },
+        "annotation extensions": {
+          "name": "annotation extensions",
+          "description": "disjunction",
+          "examples": [
+            {
+              "value": "BFO:0000066(GO:0005829)"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": true,
+          "alias": "annotation_extensions",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "annotation extension"
+        },
+        "annotation properties": {
+          "name": "annotation properties",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": true,
+          "alias": "annotation_properties",
+          "owner": "gpad association",
+          "domain_of": [
+            "gpad association"
+          ],
+          "range": "property value pair"
+        }
+      }
+    },
+    "gpad association document": {
+      "name": "gpad association document",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "association document",
+      "slot_usage": {
+        "associations": {
+          "name": "associations",
+          "multivalued": true,
+          "domain_of": [
+            "association document"
+          ],
+          "range": "gpad association"
+        }
+      },
+      "attributes": {
+        "date generated": {
+          "name": "date generated",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "date_generated",
+          "owner": "gpad association document",
+          "domain_of": [
+            "association document"
+          ],
+          "range": "string"
+        },
+        "generated by": {
+          "name": "generated by",
+          "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "generated_by",
+          "owner": "gpad association document",
+          "domain_of": [
+            "association document"
+          ],
+          "range": "provider"
+        },
+        "url": {
+          "name": "url",
+          "description": "e.g. http://www.yeastgenome.org/",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "url",
+          "owner": "gpad association document",
+          "domain_of": [
+            "association document"
+          ]
+        },
+        "project release": {
+          "name": "project release",
+          "description": "e.g.  WS275",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "project_release",
+          "owner": "gpad association document",
+          "domain_of": [
+            "association document"
+          ]
+        },
+        "funding": {
+          "name": "funding",
+          "description": "e.g. NHGRI",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "funding",
+          "owner": "gpad association document",
+          "domain_of": [
+            "association document"
+          ]
+        },
+        "go version": {
+          "name": "go version",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "ontology version",
+          "alias": "go_version",
+          "owner": "gpad association document",
+          "domain_of": [
+            "association document"
+          ]
+        },
+        "ro version": {
+          "name": "ro version",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "ontology version",
+          "alias": "ro_version",
+          "owner": "gpad association document",
+          "domain_of": [
+            "association document"
+          ]
+        },
+        "gorel version": {
+          "name": "gorel version",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "ontology version",
+          "alias": "gorel_version",
+          "owner": "gpad association document",
+          "domain_of": [
+            "association document"
+          ]
+        },
+        "associations": {
+          "name": "associations",
+          "from_schema": "https://w3id.org/ontology_association",
+          "multivalued": true,
+          "alias": "associations",
+          "owner": "gpad association document",
+          "domain_of": [
+            "association document"
+          ],
+          "range": "gpad association"
+        }
+      }
+    },
+    "gaf association": {
+      "name": "gaf association",
+      "description": "line of GAF",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "xaf association",
+      "mixins": [
+        "denormalized",
+        "go related"
+      ],
+      "slots": [
+        "db",
+        "local id",
+        "db object symbol",
+        "qualifiers",
+        "ontology class ref",
+        "supporting references",
+        "evidence type",
+        "with or from",
+        "aspect",
+        "db object name",
+        "db object synonyms",
+        "db object type",
+        "db object taxon",
+        "annotation date",
+        "assigned by",
+        "annotation extensions",
+        "gene product form"
+      ],
+      "slot_usage": {
+        "ontology class ref": {
+          "name": "ontology class ref",
+          "description": "this must be a GO ID",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "pattern": "^GO:\\d+"
+        },
+        "db object type": {
+          "name": "db object type",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "gp_entity_type_enum"
+        },
+        "aspect": {
+          "name": "aspect",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "gene_ontology_aspect_enum",
+          "required": true
+        },
+        "qualifiers": {
+          "name": "qualifiers",
+          "multivalued": true,
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "gp2term_relation_enum"
+        }
+      },
+      "attributes": {
+        "db": {
+          "name": "db",
+          "description": "db part of identifier",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "identifier": false,
+          "alias": "db",
+          "owner": "gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "string",
+          "required": true,
+          "pattern": "[a-zA-Z0-9\\.\\-\\_]+"
+        },
+        "local id": {
+          "name": "local id",
+          "description": "local part of identifier",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "identifier": false,
+          "alias": "local_id",
+          "owner": "gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "string",
+          "required": true,
+          "pattern": "\\S+"
+        },
+        "db object symbol": {
+          "name": "db object symbol",
+          "examples": [
+            {
+              "value": "AMOT"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "db_object_symbol",
+          "owner": "gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "symbol type",
+          "required": true
+        },
+        "qualifiers": {
+          "name": "qualifiers",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": true,
+          "alias": "qualifiers",
+          "owner": "gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "gp2term_relation_enum"
+        },
+        "ontology class ref": {
+          "name": "ontology class ref",
+          "description": "this must be a GO ID",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "ontology_class_ref",
+          "owner": "gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "ontology class",
+          "required": true,
+          "pattern": "^GO:\\d+"
+        },
+        "supporting references": {
+          "name": "supporting references",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:publications"
+          ],
+          "multivalued": true,
+          "alias": "supporting_references",
+          "owner": "gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "publication",
+          "required": true
+        },
+        "evidence type": {
+          "name": "evidence type",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:evidence"
+          ],
+          "alias": "evidence_type",
+          "owner": "gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "ontology class",
+          "required": true
+        },
+        "with or from": {
+          "name": "with or from",
+          "examples": [
+            {
+              "value": "WB:WBVar00000510"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:evidence_object"
+          ],
+          "multivalued": true,
+          "alias": "with_or_from",
+          "owner": "gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "entity"
+        },
+        "aspect": {
+          "name": "aspect",
+          "description": "varies by association type",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "aspect",
+          "owner": "gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "gene_ontology_aspect_enum",
+          "required": true
+        },
+        "db object name": {
+          "name": "db object name",
+          "examples": [
+            {
+              "value": "Angiomotin"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:name"
+          ],
+          "alias": "db_object_name",
+          "owner": "gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "name type",
+          "required": false
+        },
+        "db object synonyms": {
+          "name": "db object synonyms",
+          "examples": [
+            {
+              "value": "Angiomotin"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": true,
+          "alias": "db_object_synonyms",
+          "owner": "gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "name type"
+        },
+        "db object type": {
+          "name": "db object type",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": false,
+          "alias": "db_object_type",
+          "owner": "gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "gp_entity_type_enum"
+        },
+        "db object taxon": {
+          "name": "db object taxon",
+          "examples": [
+            {
+              "value": "NCBITaxon:9606"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": false,
+          "alias": "db_object_taxon",
+          "owner": "gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "taxon",
+          "required": true
+        },
+        "annotation date": {
+          "name": "annotation date",
+          "description": "date when annotation was made",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "annotation_date",
+          "owner": "gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "datetime",
+          "pattern": "^\\d{6}"
+        },
+        "assigned by": {
+          "name": "assigned by",
+          "description": "assigned by",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "assigned_by",
+          "owner": "gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "provider",
+          "required": true
+        },
+        "annotation extensions": {
+          "name": "annotation extensions",
+          "description": "disjunction",
+          "examples": [
+            {
+              "value": "BFO:0000066(GO:0005829)"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": true,
+          "alias": "annotation_extensions",
+          "owner": "gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "annotation extension"
+        },
+        "gene product form": {
+          "name": "gene product form",
+          "description": "isoform",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "gene_product_form",
+          "owner": "gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "biological entity"
+        }
+      }
+    },
+    "simple gaf association": {
+      "name": "simple gaf association",
+      "description": "",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "gaf association",
+      "slot_usage": {
+        "qualifiers": {
+          "name": "qualifiers",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "simple_qualifier_enum"
+        }
+      },
+      "attributes": {
+        "db": {
+          "name": "db",
+          "description": "db part of identifier",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "identifier": false,
+          "alias": "db",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "string",
+          "required": true,
+          "pattern": "[a-zA-Z0-9\\.\\-\\_]+"
+        },
+        "local id": {
+          "name": "local id",
+          "description": "local part of identifier",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "identifier": false,
+          "alias": "local_id",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "string",
+          "required": true,
+          "pattern": "\\S+"
+        },
+        "db object symbol": {
+          "name": "db object symbol",
+          "examples": [
+            {
+              "value": "AMOT"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "db_object_symbol",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "symbol type",
+          "required": true
+        },
+        "qualifiers": {
+          "name": "qualifiers",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": true,
+          "alias": "qualifiers",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "simple_qualifier_enum"
+        },
+        "ontology class ref": {
+          "name": "ontology class ref",
+          "description": "this must be a GO ID",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "ontology_class_ref",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "ontology class",
+          "required": true,
+          "pattern": "^GO:\\d+"
+        },
+        "supporting references": {
+          "name": "supporting references",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:publications"
+          ],
+          "multivalued": true,
+          "alias": "supporting_references",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "publication",
+          "required": true
+        },
+        "evidence type": {
+          "name": "evidence type",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:evidence"
+          ],
+          "alias": "evidence_type",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "ontology class",
+          "required": true
+        },
+        "with or from": {
+          "name": "with or from",
+          "examples": [
+            {
+              "value": "WB:WBVar00000510"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:evidence_object"
+          ],
+          "multivalued": true,
+          "alias": "with_or_from",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "entity"
+        },
+        "aspect": {
+          "name": "aspect",
+          "description": "varies by association type",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "aspect",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "gene_ontology_aspect_enum",
+          "required": true
+        },
+        "db object name": {
+          "name": "db object name",
+          "examples": [
+            {
+              "value": "Angiomotin"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:name"
+          ],
+          "alias": "db_object_name",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "name type",
+          "required": false
+        },
+        "db object synonyms": {
+          "name": "db object synonyms",
+          "examples": [
+            {
+              "value": "Angiomotin"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": true,
+          "alias": "db_object_synonyms",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "name type"
+        },
+        "db object type": {
+          "name": "db object type",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": false,
+          "alias": "db_object_type",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "gp_entity_type_enum"
+        },
+        "db object taxon": {
+          "name": "db object taxon",
+          "examples": [
+            {
+              "value": "NCBITaxon:9606"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": false,
+          "alias": "db_object_taxon",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "taxon",
+          "required": true
+        },
+        "annotation date": {
+          "name": "annotation date",
+          "description": "date when annotation was made",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "annotation_date",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "datetime",
+          "pattern": "^\\d{6}"
+        },
+        "assigned by": {
+          "name": "assigned by",
+          "description": "assigned by",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "assigned_by",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "provider",
+          "required": true
+        },
+        "annotation extensions": {
+          "name": "annotation extensions",
+          "description": "disjunction",
+          "examples": [
+            {
+              "value": "BFO:0000066(GO:0005829)"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": true,
+          "alias": "annotation_extensions",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "annotation extension"
+        },
+        "gene product form": {
+          "name": "gene product form",
+          "description": "isoform",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "gene_product_form",
+          "owner": "simple gaf association",
+          "domain_of": [
+            "gaf association",
+            "xaf association"
+          ],
+          "range": "biological entity"
+        }
+      }
+    },
+    "gaf association document": {
+      "name": "gaf association document",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "association document",
+      "slot_usage": {
+        "associations": {
+          "name": "associations",
+          "multivalued": true,
+          "domain_of": [
+            "gpad association document",
+            "association document"
+          ],
+          "range": "gaf association"
+        }
+      },
+      "attributes": {
+        "date generated": {
+          "name": "date generated",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "date_generated",
+          "owner": "gaf association document",
+          "domain_of": [
+            "gpad association document",
+            "association document"
+          ],
+          "range": "string"
+        },
+        "generated by": {
+          "name": "generated by",
+          "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "generated_by",
+          "owner": "gaf association document",
+          "domain_of": [
+            "gpad association document",
+            "association document"
+          ],
+          "range": "provider"
+        },
+        "url": {
+          "name": "url",
+          "description": "e.g. http://www.yeastgenome.org/",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "url",
+          "owner": "gaf association document",
+          "domain_of": [
+            "gpad association document",
+            "association document"
+          ]
+        },
+        "project release": {
+          "name": "project release",
+          "description": "e.g.  WS275",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "project_release",
+          "owner": "gaf association document",
+          "domain_of": [
+            "gpad association document",
+            "association document"
+          ]
+        },
+        "funding": {
+          "name": "funding",
+          "description": "e.g. NHGRI",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "funding",
+          "owner": "gaf association document",
+          "domain_of": [
+            "gpad association document",
+            "association document"
+          ]
+        },
+        "go version": {
+          "name": "go version",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "ontology version",
+          "alias": "go_version",
+          "owner": "gaf association document",
+          "domain_of": [
+            "gpad association document",
+            "association document"
+          ]
+        },
+        "ro version": {
+          "name": "ro version",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "ontology version",
+          "alias": "ro_version",
+          "owner": "gaf association document",
+          "domain_of": [
+            "gpad association document",
+            "association document"
+          ]
+        },
+        "gorel version": {
+          "name": "gorel version",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "ontology version",
+          "alias": "gorel_version",
+          "owner": "gaf association document",
+          "domain_of": [
+            "gpad association document",
+            "association document"
+          ]
+        },
+        "associations": {
+          "name": "associations",
+          "from_schema": "https://w3id.org/ontology_association",
+          "multivalued": true,
+          "alias": "associations",
+          "owner": "gaf association document",
+          "domain_of": [
+            "gpad association document",
+            "association document"
+          ],
+          "range": "gaf association"
+        }
+      }
+    },
+    "entity": {
+      "name": "entity",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "close_mappings": [
+        "biolink:NamedThing"
+      ],
+      "abstract": true
+    },
+    "biological entity": {
+      "name": "biological entity",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "biolink:BiologicalEntity"
+      ],
+      "is_a": "entity",
+      "abstract": true
+    },
+    "provider": {
+      "name": "provider",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "entity"
+    },
+    "publication": {
+      "name": "publication",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "entity"
+    },
+    "controlled term": {
+      "name": "controlled term",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "entity"
+    },
+    "ontology class": {
+      "name": "ontology class",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "biolink:OntologyClass"
+      ],
+      "is_a": "controlled term"
+    },
+    "taxon": {
+      "name": "taxon",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "exact_mappings": [
+        "biolink:OrganismTaxon"
+      ],
+      "is_a": "ontology class"
+    },
+    "relation term": {
+      "name": "relation term",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "controlled term"
+    },
+    "relational construct": {
+      "name": "relational construct",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "abstract": true
+    },
+    "property value pair": {
+      "name": "property value pair",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "relational construct",
+      "attributes": {
+        "property": {
+          "name": "property",
+          "from_schema": "https://w3id.org/ontology_association",
+          "alias": "property",
+          "owner": "property value pair",
+          "domain_of": [
+            "property value pair"
+          ],
+          "range": "controlled term"
+        },
+        "value": {
+          "name": "value",
+          "description": "value",
+          "from_schema": "https://w3id.org/ontology_association",
+          "alias": "value",
+          "owner": "property value pair",
+          "domain_of": [
+            "property value pair"
+          ]
+        }
+      }
+    },
+    "annotation extension": {
+      "name": "annotation extension",
+      "description": "set of expressions all true",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "relational construct"
+    },
+    "annotation": {
+      "name": "annotation",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "abstract": true
+    },
+    "association": {
+      "name": "association",
+      "description": "generic association between an entity and an ontological term",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "annotation",
+      "abstract": true
+    },
+    "xaf association": {
+      "name": "xaf association",
+      "description": "line of xAF. xAF is a generalization of GAF designed to work for other ontologies than GO, and for other entities beyond genes and proteins. xAF has the same column headers to GAF, but has fewer restrictions. ",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "association",
+      "mixins": [
+        "denormalized"
+      ],
+      "slots": [
+        "db",
+        "local id",
+        "db object symbol",
+        "qualifiers",
+        "ontology class ref",
+        "supporting references",
+        "evidence type",
+        "with or from",
+        "aspect",
+        "db object name",
+        "db object synonyms",
+        "db object type",
+        "db object taxon",
+        "annotation date",
+        "assigned by",
+        "annotation extensions",
+        "gene product form"
+      ],
+      "attributes": {
+        "db": {
+          "name": "db",
+          "description": "db part of identifier",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "identifier": false,
+          "alias": "db",
+          "owner": "xaf association",
+          "domain_of": [
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "string",
+          "required": true,
+          "pattern": "[a-zA-Z0-9\\.\\-\\_]+"
+        },
+        "local id": {
+          "name": "local id",
+          "description": "local part of identifier",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "identifier": false,
+          "alias": "local_id",
+          "owner": "xaf association",
+          "domain_of": [
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "string",
+          "required": true,
+          "pattern": "\\S+"
+        },
+        "db object symbol": {
+          "name": "db object symbol",
+          "examples": [
+            {
+              "value": "AMOT"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "db_object_symbol",
+          "owner": "xaf association",
+          "domain_of": [
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "symbol type",
+          "required": true
+        },
+        "qualifiers": {
+          "name": "qualifiers",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": true,
+          "alias": "qualifiers",
+          "owner": "xaf association",
+          "domain_of": [
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ]
+        },
+        "ontology class ref": {
+          "name": "ontology class ref",
+          "examples": [
+            {
+              "value": "GO:0050803"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:object"
+          ],
+          "alias": "ontology_class_ref",
+          "owner": "xaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "ontology class",
+          "required": true
+        },
+        "supporting references": {
+          "name": "supporting references",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:publications"
+          ],
+          "multivalued": true,
+          "alias": "supporting_references",
+          "owner": "xaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "publication",
+          "required": true
+        },
+        "evidence type": {
+          "name": "evidence type",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:evidence"
+          ],
+          "alias": "evidence_type",
+          "owner": "xaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "ontology class",
+          "required": true
+        },
+        "with or from": {
+          "name": "with or from",
+          "examples": [
+            {
+              "value": "WB:WBVar00000510"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:evidence_object"
+          ],
+          "multivalued": true,
+          "alias": "with_or_from",
+          "owner": "xaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "entity"
+        },
+        "aspect": {
+          "name": "aspect",
+          "description": "varies by association type",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "aspect",
+          "owner": "xaf association",
+          "domain_of": [
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "required": true
+        },
+        "db object name": {
+          "name": "db object name",
+          "examples": [
+            {
+              "value": "Angiomotin"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "exact_mappings": [
+            "biolink:name"
+          ],
+          "alias": "db_object_name",
+          "owner": "xaf association",
+          "domain_of": [
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "name type",
+          "required": false
+        },
+        "db object synonyms": {
+          "name": "db object synonyms",
+          "examples": [
+            {
+              "value": "Angiomotin"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": true,
+          "alias": "db_object_synonyms",
+          "owner": "xaf association",
+          "domain_of": [
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "name type"
+        },
+        "db object type": {
+          "name": "db object type",
+          "examples": [
+            {
+              "value": "PR:000000001"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": false,
+          "alias": "db_object_type",
+          "owner": "xaf association",
+          "domain_of": [
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ]
+        },
+        "db object taxon": {
+          "name": "db object taxon",
+          "examples": [
+            {
+              "value": "NCBITaxon:9606"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": false,
+          "alias": "db_object_taxon",
+          "owner": "xaf association",
+          "domain_of": [
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "taxon",
+          "required": true
+        },
+        "annotation date": {
+          "name": "annotation date",
+          "description": "date when annotation was made",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "annotation_date",
+          "owner": "xaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "datetime",
+          "pattern": "^\\d{6}"
+        },
+        "assigned by": {
+          "name": "assigned by",
+          "description": "assigned by",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "assigned_by",
+          "owner": "xaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "provider",
+          "required": true
+        },
+        "annotation extensions": {
+          "name": "annotation extensions",
+          "description": "disjunction",
+          "examples": [
+            {
+              "value": "BFO:0000066(GO:0005829)"
+            }
+          ],
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "multivalued": true,
+          "alias": "annotation_extensions",
+          "owner": "xaf association",
+          "domain_of": [
+            "gpad association",
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "annotation extension"
+        },
+        "gene product form": {
+          "name": "gene product form",
+          "description": "isoform",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "alias": "gene_product_form",
+          "owner": "xaf association",
+          "domain_of": [
+            "gaf association",
+            "simple gaf association",
+            "xaf association"
+          ],
+          "range": "biological entity"
+        }
+      }
+    },
+    "document": {
+      "name": "document",
+      "description": "root class for association or entity documents",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "abstract": true
+    },
+    "association document": {
+      "name": "association document",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "is_a": "document",
+      "slots": [
+        "date generated",
+        "generated by",
+        "url",
+        "project release",
+        "funding",
+        "go version",
+        "ro version",
+        "gorel version"
+      ],
+      "attributes": {
+        "associations": {
+          "name": "associations",
+          "from_schema": "https://w3id.org/ontology_association",
+          "multivalued": true,
+          "alias": "associations",
+          "owner": "association document",
+          "domain_of": [
+            "gpad association document",
+            "gaf association document",
+            "association document"
+          ],
+          "range": "association"
+        },
+        "date generated": {
+          "name": "date generated",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "date_generated",
+          "owner": "association document",
+          "domain_of": [
+            "gpad association document",
+            "gaf association document",
+            "association document"
+          ],
+          "range": "string"
+        },
+        "generated by": {
+          "name": "generated by",
+          "description": "YYYY-MM-DD or YYYY-MM-DDTHH:MM",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "generated_by",
+          "owner": "association document",
+          "domain_of": [
+            "gpad association document",
+            "gaf association document",
+            "association document"
+          ],
+          "range": "provider"
+        },
+        "url": {
+          "name": "url",
+          "description": "e.g. http://www.yeastgenome.org/",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "url",
+          "owner": "association document",
+          "domain_of": [
+            "gpad association document",
+            "gaf association document",
+            "association document"
+          ]
+        },
+        "project release": {
+          "name": "project release",
+          "description": "e.g.  WS275",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "project_release",
+          "owner": "association document",
+          "domain_of": [
+            "gpad association document",
+            "gaf association document",
+            "association document"
+          ]
+        },
+        "funding": {
+          "name": "funding",
+          "description": "e.g. NHGRI",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "document metadata field",
+          "alias": "funding",
+          "owner": "association document",
+          "domain_of": [
+            "gpad association document",
+            "gaf association document",
+            "association document"
+          ]
+        },
+        "go version": {
+          "name": "go version",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "ontology version",
+          "alias": "go_version",
+          "owner": "association document",
+          "domain_of": [
+            "gpad association document",
+            "gaf association document",
+            "association document"
+          ]
+        },
+        "ro version": {
+          "name": "ro version",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "ontology version",
+          "alias": "ro_version",
+          "owner": "association document",
+          "domain_of": [
+            "gpad association document",
+            "gaf association document",
+            "association document"
+          ]
+        },
+        "gorel version": {
+          "name": "gorel version",
+          "from_schema": "https://w3id.org/ontology_association/gaf",
+          "is_a": "ontology version",
+          "alias": "gorel_version",
+          "owner": "association document",
+          "domain_of": [
+            "gpad association document",
+            "gaf association document",
+            "association document"
+          ]
+        }
+      }
+    },
+    "denormalized": {
+      "name": "denormalized",
+      "description": "mixin for a denormalized class. A denormalized class is formed from a join of two or more other classes",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "mixin": true
+    },
+    "normalized": {
+      "name": "normalized",
+      "description": "mixin for a normalized class, in the sense of database normal forms",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "mixin": true
+    },
+    "go related": {
+      "name": "go related",
+      "description": "mixin for any association that is GO related",
+      "from_schema": "https://w3id.org/ontology_association/gaf",
+      "mixin": true
+    }
+  },
+  "source_file": "gaf.yaml",
+  "@type": "SchemaDefinition"
+}
